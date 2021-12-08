@@ -1,0 +1,36 @@
+---
+- hosts: myubuntuserver
+  become: yes
+  tasks:
+  - name: create a file
+    file:
+      path: /home/ubuntu/mytestfile.txt 
+      state: touch
+  - include: file.yml
+  - name: i want install apache webserver on ubuntu
+    apt:
+      name: apache2
+      state: present
+    notify: restartwebserver
+
+  - name:  i want to copy file into ansible nodes side
+    template:
+      src: myindex.j2
+      dest: /var/www/html/index.html
+    notify: installgit
+
+
+  handlers:
+  - name: installgit
+    apt:
+      name: git
+      state: present
+  - name: restartwebserver
+    service:
+      name: apache2
+      state: restarted
+
+
+
+
+    

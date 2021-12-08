@@ -1,0 +1,20 @@
+---
+- mystudentDetails: 
+    - name: rakesh
+      phno: 8989898989
+      email: rakesh@gmail.com
+      address: hyd
+
+    - name: harsha
+      phno: 7979797997
+      email: harsha@gmail.com
+      address: chenai
+
+    - name: jagadeesh
+      phno: 6969696969
+      email: jagadeesh@gmail.com
+      address: hyd
+      
+
+
+

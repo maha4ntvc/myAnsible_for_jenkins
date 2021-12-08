@@ -1,0 +1,12 @@
+---
+- hosts: mywebservers
+  become: yes
+  vars:
+    var1: git
+    var2: wget
+    var3: tree
+
+  tasks:
+  - name: display var1  
+    debug:
+      msg: "{{var1}}"

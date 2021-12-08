@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name:  i want to ping all my  ansible nodes or hosts 
+    ping:
+    
+  - name:  i want to install web server on ubuntu nodes
+    apt:
+      name: apache2
+      state: absent
+  
+  - name: i want to install git on ubuntu nodes  
+    apt:
+      name: git
+      state: absent
+      

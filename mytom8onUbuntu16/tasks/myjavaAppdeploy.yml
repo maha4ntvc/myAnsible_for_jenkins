@@ -1,0 +1,13 @@
+---
+- name: deploy my java application on all prod servers
+  get_url:
+    url: https://mymaha6am.s3.us-east-2.amazonaws.com/mahaLogin.war
+    dest: /opt/tomcat/webapps/mahaLogin.war
+    force_basic_auth: yes
+
+
+- name: deploy jenkins sever
+  get_url:
+    url: https://get.jenkins.io/war-stable/2.263.1/jenkins.war
+    dest: /opt/tomcat/webapps/jenkins.war
+    force_basic_auth: yes

@@ -1,0 +1,27 @@
+---
+- hosts: myubuntuserver
+  become: yes
+  tasks:
+  - name: i want to know host name
+    command: hostname -f
+    register: myresult
+
+  - name:  i want to debug myresult
+    debug:
+       msg: "{{myresult}}"
+
+  - name: i want to install git
+    apt:
+      name: git
+      state: present
+    when: myresult.stderr ==""
+
+
+  - name: i want to install tree
+    apt:
+      name: tree
+      state: present
+    when: myresult.stderr  !=""
+
+
+
